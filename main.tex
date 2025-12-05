@@ -1,0 +1,350 @@
+%% Use the "normalphoto" option if you want a normal photo instead of cropped to a circle
+% \documentclass[10pt,a4paper,normalphoto]{altacv}
+
+\documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
+%% AltaCV uses the fontawesome5 and simpleicons packages.
+%% See http://texdoc.net/pkg/fontawesome5 and http://texdoc.net/pkg/simpleicons for full list of symbols.
+
+% Change the page layout if you need to
+\geometry{left=1.25cm,right=1.25cm,top=1.5cm,bottom=1.5cm,columnsep=1.2cm}
+
+% The paracol package lets you typeset columns of text in parallel
+\usepackage{paracol}
+
+
+% Change the font if you want to, depending on whether
+% you're using pdflatex or xelatex/lualatex
+% WHEN COMPILING WITH XELATEX PLEASE USE
+% xelatex -shell-escape -output-driver="xdvipdfmx -z 0" mmayer.tex
+\ifxetexorluatex
+  % If using xelatex or lualatex:
+  \setmainfont{Lato}
+\else
+  % If using pdflatex:
+  \usepackage[default]{lato}
+\fi
+
+% Change the colours if you want to
+\definecolor{NavyBlue}{HTML}{0a173b}
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+% \colorlet{name}{black}
+% \colorlet{tagline}{PastelRed}
+\colorlet{heading}{NavyBlue}
+\colorlet{tagline}{NavyBlue}
+\colorlet{headingrule}{NavyBlue}
+% \colorlet{subheading}{PastelRed}
+\colorlet{accent}{NavyBlue}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+
+% Change some fonts, if necessary
+% \renewcommand{\namefont}{\Huge\rmfamily\bfseries}
+% \renewcommand{\personalinfofont}{\footnotesize}
+% \renewcommand{\cvsectionfont}{\LARGE\rmfamily\bfseries}
+% \renewcommand{\cvsubsectionfont}{\large\bfseries}
+
+% Change the bullets for itemize and rating marker
+% for \cvskill if you want to
+\renewcommand{\cvItemMarker}{{\small\textbullet}}
+\renewcommand{\cvRatingMarker}{\faCircle}
+% ...and the markers for the date/location for \cvevent
+\renewcommand{\cvDateMarker}{\faCalendar*[regular]}
+\renewcommand{\cvLocationMarker}{}
+
+
+% If your CV/résumé is in a language other than English,
+% then you probably want to change these so that when you
+% copy-paste from the PDF or run pdftotext, the location
+% and date marker icons for \cvevent will paste as correct
+% translations. For example Spanish:
+% \renewcommand{\locationname}{Ubicación}
+% \renewcommand{\datename}{Fecha}
+
+
+%% Use (and optionally edit if necessary) this .tex if you
+%% want to use an author-year reference style like APA(6)
+%% for your publication list
+% \input{pubs-authoryear.tex}
+
+%% Use (and optionally edit if necessary) this .tex if you
+%% want an originally numerical reference style like IEEE
+%% for your publication list
+\input{pubs-num.tex}
+
+
+\begin{document}
+\name{Jonas Carlsson}
+\tagline{Civilingenjör i Datateknik / Mjukvaruutvecklare}
+% Cropped to square from https://en.wikipedia.org/wiki/Marissa_Mayer#/media/File:Marissa_Mayer_May_2014_(cropped).jpg, CC-BY 2.0
+%% You can add multiple photos on the left or right
+\photoR{4.5cm}{profilbild}
+% \photoL{2cm}{Yacht_High,Suitcase_High}
+\personalinfo{%
+  % Not all of these are required!
+  % You can add your own with \printinfo{symbol}{detail}
+  \email{j_c_kc@live.se}
+  \phone{070-3813089}
+  
+  \vspace{0.2cm}
+  
+  \location{Timrå}
+  \linkedin{jonas-carlsson-456b561a7}
+%   \github{github.com/mmayer} % I'm just making this up though.
+}
+
+\makecvheader
+
+%% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
+\AtBeginEnvironment{itemize}{\small}
+
+%% Set the left/right column width ratio to 6:4.
+\columnratio{0.6}
+
+% Start a 2-column paracol. Both the left and right columns will automatically
+% break across pages if things get too long.
+\begin{paracol}{2}
+
+\cvsection{Arbetslivserfarenhet}
+
+\cvevent{Arkitekt \& Utvecklare}{AdjustIT AB}{Maj 2025 -- Pågående}
+
+\begin{itemize}
+  \item Bygger en multitenant webbplats och en cross-platform app som är billig och lätt att använda för bland annat föreningar.
+  \item Funktionalitet för medlemsadministration, köp-betalningshantering och bokning av träningsgrupper.
+  \item Inpassering via IoT-enheter som styr dörrar och låskomst.
+  \item Integrationer mot olika API:er för att automatisera ansökningar om bidrag till ungdomsträningar.
+  \item Använder AI-verktyg för att hjälpa användare navigera sidan och snabbt utföra åtgärder.
+  \item Designade en skalbar multitenant-arkitektur och uppsatte CI/CD-pipelines för kontinuerlig integration och leverans.
+  \item Teknik: C\#, Blazor, .NET MAUI, Azure, IoT, AI, Pipelines (Yaml), Google Cloud.
+\end{itemize}
+
+\divider
+
+\cvevent{Utvecklare / Konsult}{Sogeti}{Jan 2023 -- Pågående}
+
+\divider
+
+\cvevent{Fullstack Systemutvecklare / Webbgruppen}{SCA}{Sep 2024 -- Pågående}
+
+\begin{itemize}
+  \item Fullstack arbete i ett litet team med fokus på nyutveckling och drift av interna system.
+  \item Arbete med drift och incidenthantering.
+  \item Arbetade med att sätta upp av CI/CD-pipelines.
+  \item Nyutveckling av API:er samt underhåll.  
+  \item Integrationer mot externa API:er.  
+  \item Arbete med Databas design och drift. Både EF och ren SQL.  
+  \item Utveckling av webbapplikationer i MVC (C\#, ASP.NET Core).
+  \item Utveckling av webbapplikationer i Angular.
+  \item Migrerade projekt från TFS till GitHub. 
+  \item Teknik: C\#, .NET Core, .NET Framework, ASP.NET, REST API, SOAP API, MVC, Angular, Git, GitHub, CI/CD (Yaml), GitHub Actions, SQL, SSMS, IIS.
+\end{itemize}
+
+\divider
+
+\cvevent{Systemarkitekt \& Utvecklare / Nemus}{SCA}{Nov 2023 -- Sep 2024}
+
+\begin{itemize}
+  \item Ansvarade för design av arkitektur och implementering av service i C\# som genererar XML-dokument för avverkningsanmälan.
+  \item Utvecklade integration mot externt API.
+  \item Designade databasmodeller och hanteringsflöden för validering, lagring och export av data.
+  \item Agerade rådgivare till design av verktyg för användarinmatning vilket förenklade arbetsflödet för kundens användare.
+  \item Arbetet innebar nära kontakt med kund och externa leverantörer; deltog i kravworkshops och leveransplanering.
+  \item Levererad och driftsatt i september 2024 med fortsatt driftstöd och iterativ nyutveckling vid behov.
+  \item Teknik: C\#, XML, REST API, ArcGis, PostGIS, SQL.
+\end{itemize}
+
+\divider
+
+\cvevent{Systemarkitekt \& Utvecklare}{SCA}{Apr 2023 -- Maj 2023}
+
+\begin{itemize}
+  \item Ansvarade för design av arkitektur och implementering av modernisering av ett äldre filhanteringssystem skrivet i Delphi.
+  \item Arbetet genomfördes i litet team med nära samarbete med kund.
+  \item Levererad och driftsatt i september 2024 med fortsatt driftstöd och iterativ nyutveckling vid behov.
+  \item Teknik: C\#, .Net Core, XML, SOAP API.
+\end{itemize}
+
+\divider
+% \newpage
+
+% \vspace*{0.5cm}
+
+% \cvsection{Arbetslivs Erfarenhet}
+% \vspace{0.5cm}
+
+\cvevent{Utvecklare}{Stor Myndighet}{Jan 2023 -- Apr 2023}
+
+\begin{itemize}
+  \item Arbetade agilt i ett stort team för att utveckla en administrationswebbplats samt ett utlåningssystem.
+  \item Ingick i liten grupp som ansvarade för arkitekturdesign, uppsättning av projektets grundstruktur samt implementering av autentiseringlösning för mikrotjänsterna.
+  \item Utveckling av användarrelaterade sidor i Angular-frontenden, inklusive registrering, inloggning och profilsidor.
+  \item Utveckling av databasmodeller och integration mot API:er.
+  \item Teknik: C\#, Azure, .Net Core, Angular, REST API, Microservices, SQL.
+\end{itemize}
+
+% \divider
+
+% \cvevent{Product Engineer}{Google}{23 June 1999 -- 2001}{Palo Alto, CA}
+
+% \begin{itemize}
+% \item Joined the company as employe \#20 and female employee \#1
+% \item Developed targeted advertisement in order to use user's search queries and show them related ads
+% \end{itemize}
+
+% use ONLY \newpage if you want to force a page break for
+% ONLY the currentc column
+
+\divider
+
+\cvevent{Utvecklare \& Forskare / Masterarbete}{Mid Sweden University}{Sep 2022 -- Apr 2023}
+
+\begin{itemize}
+  \item Proof of concept av video visualiseringsmetod för skytteträning.
+  \item Utveckling av visualiseringsverktyg i Python.
+  \item Skyttevideos spelades in med en video kamera + Raspberry Pi.
+  \item Teknik: IoT, Python, Video Processing
+\end{itemize}
+
+\divider
+
+\cvevent{Utvecklare / SIMS}{DIGG}{Sep 2021 -- Dec 2021}
+
+\begin{itemize}
+  \item Utvecklade ett Webb API i Python som genererar utvärderad meta-data från öppen data 
+  \item Arbete i ett team av studenter med agil produktutveckling.
+  \item Teknik: Python, REST API, WebbScraping
+\end{itemize}
+
+\divider
+
+\cvevent{Utvecklare / C-Uppsats}{Easit}{Juni 2021 -- Sep 2021}
+
+\begin{itemize}
+  \item Arbetade med Integration av en webbapp mot en bot service genom Microsoft Teams
+  \item Teknik: C\#, Azure, Microsoft Teams, REST API
+\end{itemize}
+
+%% Switch to the right column. This will now automatically move to the second
+%% page if the content is too long.
+\switchcolumn
+
+\cvsection{Beskrivning}
+
+Erfaren mjukvaruutvecklare och systemarkitekt med över 10 års erfarenhet inom programmering. Har framgångsrikt lett och levererat projekt från kravfångst till produktionssättning, med starkt fokus på skalbar arkitektur, automatiserad CI/CD och mätbart kundvärde. Trivs med att ta helhetsansvar – från att designa robusta system-lösningar till att optimera driftsmiljöer och utvecklingstempo. Söker utmanande uppdrag vid behov av teknisk expertis och affärsnytta.
+
+\cvsection{fritid}
+
+\cvtag{Tennis}
+\cvtag{Fiske}
+\cvtag{Isbad}\\
+\cvtag{Vandra}
+\cvtag{Gaming}
+\cvtag{Brädspel}
+
+\cvsection{Styrkor}
+
+\cvtag{Problemlösning}
+\cvtag{Kommunikation}\\
+\cvtag{Hårt Arbetande}
+\cvtag{Tekniskt Nyfiken}
+
+\divider\smallskip
+
+\cvtag{Lugn}
+\cvtag{Snäll}
+\cvtag{Lagspelare}
+\cvtag{Proaktiv}
+
+\cvsection{Utbildning}
+
+\cvedu{Civilingenjör i datateknik}{Mittuniversitetet}{Sep 2016 -- Maj 2023}{}
+
+\cvsection{Publikation}
+
+\href{https://urn.kb.se/resolve?urn=urn:nbn:se:miun:diva-48041}{Examensarbete}
+
+\cvsection{Övrig Kunskap}
+
+\cvtag{Svenska}
+\cvtag{Engelska}
+\cvtag{Körkort}
+
+\cvsection{Certifikat}
+
+\cvcert{AZ-204}{Mars 2023}
+\cvcert{AZ-900}{Juli 2023}
+\cvcert{AI-900}{Juli 2023}
+
+\newpage
+
+\vspace*{0.5cm}
+
+\cvsection{Kunskap}
+\cvevent{}{Programspråk}{}
+\cvtag{C\#}
+\cvtag{C++}
+\cvtag{Javascript}
+\cvtag{Typescript}
+\cvtag{C}
+\cvtag{Python}
+\cvtag{Html}
+\cvtag{CSS}
+
+\cvevent{}{Webbteknologier \& Ramverk}{}
+\cvtag{ASP.NET}
+\cvtag{MVC}
+\cvtag{Blazor}\\
+\cvtag{Angular}
+\cvtag{Minimal Api}
+
+\cvevent{}{Moln \& Infrastruktur}{}
+\cvtag{Azure}
+\cvtag{Google Cloud}
+\cvtag{IIS}
+
+\cvevent{}{Verktyg}{}
+\cvtag{Git}
+\cvtag{Github}
+\cvtag{Jira}
+\cvtag{Confluence}\\
+\cvtag{Visual Studio}
+\cvtag{Visual Studio Code}\\
+\cvtag{TFS}
+\cvtag{AI}
+\cvtag{Figma}
+\cvtag{Draw.io}
+
+\cvevent{}{Arbetsätt}{}
+\cvtag{Clean Architecture}
+\cvtag{Scrum}\\
+\cvtag{Agile}
+\cvtag{Devops}
+\cvtag{CI/CD}
+
+\cvevent{}{Plattformar \& tjänster}{}
+\cvtag{Microservices}
+\cvtag{API}\\
+\cvtag{Rest}
+\cvtag{Github Actions}
+
+\cvevent{}{Databaser \& databasverktyg}{}
+\cvtag{SQL}
+\cvtag{Entity Framework (EF)}\\
+\cvtag{SSMS}
+\cvtag{PostgreSQL}
+\cvtag{PostGIS}
+
+\cvevent{}{Övrigt}{}
+\cvtag{GIS}
+\cvtag{ArcGis}
+\cvtag{Nemus}
+\cvtag{Skogsvård}
+\cvtag{IoT}
+\cvtag{Json}
+\cvtag{Xml}
+\cvtag{Yaml}
+
+\end{paracol}
+
+\end{document}
